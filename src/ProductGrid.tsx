@@ -5,7 +5,7 @@ import Card from "./Card";
 
 const GridWrapper = styled.section`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   grid-gap: 1rem;
 `;
 
