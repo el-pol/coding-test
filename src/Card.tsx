@@ -22,10 +22,11 @@ const ProductDetails = styled.div`
   justify-content: space-between;
   align-items: center;
   .product-name {
+    font-size: 24px;
     font-weight: bold;
   }
   .product-price {
-    font-size: 1.5rem;
+    font-size: 36px;
     font-weight: bold;
   }
 `;
@@ -71,6 +72,7 @@ const Card = ({ image, name, price, isSale, isExclusive }: ICardProps) => {
     <CardWrapper>
       <ProductImageWrapper>
         <img className="product-image" src={image} alt={name} />
+        <br />
         {isSale && <Panel isSale />} {isExclusive && <Panel isExclusive />}
       </ProductImageWrapper>
       <ProductDetails>
