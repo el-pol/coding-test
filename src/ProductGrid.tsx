@@ -14,6 +14,7 @@ const ProductGrid: React.FC = () => {
     <GridWrapper>
       {mockData.map(product => (
         <Card
+          key={product.index}
           image={product.productImage}
           name={product.productName}
           price={product.price}
