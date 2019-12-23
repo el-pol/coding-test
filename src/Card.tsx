@@ -32,7 +32,7 @@ const ProductDetails = styled.div`
 `;
 
 const PanelWrapper = styled.div`
-  background-color: ${(props: IPanelProps) =>
+  background-color: ${(props: PanelProps) =>
     props.isSale ? "#cc3333" : "#009900"};
   color: white;
   display: inline-block;
@@ -41,7 +41,7 @@ const PanelWrapper = styled.div`
   }
 `;
 
-type ICardProps = {
+type CardProps = {
   image: string;
   name: string;
   price: string;
@@ -50,13 +50,13 @@ type ICardProps = {
 };
 
 // If more booleans are added later, better to change it to a "variant = x | y |z" prop (enum).
-type IPanelProps = {
+type PanelProps = {
   isSale?: boolean;
   isExclusive?: boolean;
 };
 
 // The Panel component is in the Card file because it is only used inside the Card component. Could be extracted to be used in other places if needed.
-const Panel: FunctionComponent<IPanelProps> = props => {
+const Panel: FunctionComponent<PanelProps> = props => {
   return (
     <>
       <PanelWrapper isSale={props.isSale}>
@@ -66,7 +66,7 @@ const Panel: FunctionComponent<IPanelProps> = props => {
   );
 };
 
-const Card: FunctionComponent<ICardProps> = ({
+const Card: FunctionComponent<CardProps> = ({
   image,
   name,
   price,
