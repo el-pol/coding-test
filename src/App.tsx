@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FunctionComponent } from "react";
 import { Normalize } from "styled-normalize";
 import { createGlobalStyle } from "styled-components";
 import ProductGrid from "./ProductGrid";
@@ -14,7 +14,7 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-const App: React.FC = () => {
+const App: FunctionComponent = () => {
   return (
     <>
       <Normalize />

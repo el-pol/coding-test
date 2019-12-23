@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FunctionComponent } from "react";
 import styled from "styled-components";
 
 const CardWrapper = styled.article`
@@ -41,22 +41,22 @@ const PanelWrapper = styled.div`
   }
 `;
 
-interface ICardProps {
+type ICardProps = {
   image: string;
   name: string;
   price: string;
   isSale: boolean;
   isExclusive: boolean;
-}
+};
 
 // If more booleans are added later, better to change it to a "variant = x | y |z" prop (enum).
-interface IPanelProps {
+type IPanelProps = {
   isSale?: boolean;
   isExclusive?: boolean;
-}
+};
 
 // The Panel component is in the Card file because it is only used inside the Card component. Could be extracted to be used in other places if needed.
-const Panel = (props: IPanelProps) => {
+const Panel: FunctionComponent<IPanelProps> = props => {
   return (
     <>
       <PanelWrapper isSale={props.isSale}>
@@ -66,7 +66,13 @@ const Panel = (props: IPanelProps) => {
   );
 };
 
-const Card = ({ image, name, price, isSale, isExclusive }: ICardProps) => {
+const Card: FunctionComponent<ICardProps> = ({
+  image,
+  name,
+  price,
+  isSale,
+  isExclusive
+}) => {
   // Panel component accounts for cases where an item is on sale and is exclusive as well (not in the API, but could happen "in real life").
   return (
     <CardWrapper>

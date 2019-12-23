@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FunctionComponent } from "react";
 import styled from "styled-components";
 import mockData from "./products.json";
 import Card from "./Card";
@@ -9,7 +9,7 @@ const GridWrapper = styled.section`
   grid-gap: 1rem;
 `;
 
-const ProductGrid: React.FC = () => {
+const ProductGrid: FunctionComponent = () => {
   return (
     <GridWrapper>
       {mockData.map(product => (

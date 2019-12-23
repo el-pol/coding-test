@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FunctionComponent } from "react";
 import styled from "styled-components";
 
 const NavHeader = styled.nav`
@@ -25,15 +25,15 @@ const ProductDetails = styled.div`
   }
 `;
 
-interface CardProps {
-  image: string;
-  name: string;
-  price: string;
-  isSale: boolean;
-  isExclusive: boolean;
-}
+// type CardProps = {
+//   image: string;
+//   name: string;
+//   price: string;
+//   isSale: boolean;
+//   isExclusive: boolean;
+// }
 
-const Navbar = () => {
+const Navbar: FunctionComponent = () => {
   const sizes = ["XS", "S", "M", "L", "XL"];
   return (
     <NavHeader>
