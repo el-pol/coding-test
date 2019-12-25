@@ -9,12 +9,14 @@ const CardWrapper = styled.article`
 `;
 
 const ProductImageWrapper = styled.div`
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   .product-image {
     width: 100%;
-    min-height: 100px;
     height: auto;
     margin: 1rem;
+    min-height: 100px;
   }
 `;
 const ProductDetails = styled.div`
@@ -35,9 +37,11 @@ const PanelWrapper = styled.div`
   background-color: ${(props: PanelProps) =>
     props.isSale ? "#cc3333" : "#009900"};
   color: white;
-  display: inline-block;
+  width: max-content;
   .panel-text {
-    padding: 0.5rem;
+    padding: 1rem;
+    text-align: center;
+    margin: 0;
   }
 `;
 
@@ -60,7 +64,7 @@ const Panel: FunctionComponent<PanelProps> = props => {
   return (
     <>
       <PanelWrapper isSale={props.isSale}>
-        <div className="panel-text">{props.isSale ? "Sale" : "Exclusive"}</div>
+        <p className="panel-text">{props.isSale ? "Sale" : "Exclusive"}</p>
       </PanelWrapper>
     </>
   );

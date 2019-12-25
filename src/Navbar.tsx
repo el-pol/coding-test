@@ -9,7 +9,7 @@ const NavHeader = styled.nav`
   background-color: #def1f4;
   margin-bottom: 0.5rem;
   * {
-    margin: 0 1rem;
+    margin: 0.5rem 1rem;
   }
 `;
 const ProductDetails = styled.div`
