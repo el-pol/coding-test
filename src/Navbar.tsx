@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useState } from "react";
+import React, { FunctionComponent } from "react";
 import styled from "styled-components";
 
 const NavHeader = styled.nav`
@@ -12,26 +12,6 @@ const NavHeader = styled.nav`
     margin: 0.5rem 1rem;
   }
 `;
-const ProductDetails = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  .product-name {
-    font-weight: bold;
-  }
-  .product-price {
-    font-size: 1.5rem;
-    font-weight: bold;
-  }
-`;
-
-// type CardProps = {
-//   image: string;
-//   name: string;
-//   price: string;
-//   isSale: boolean;
-//   isExclusive: boolean;
-// }
 
 type NavbarProps = {
   onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
