@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent, useState } from "react";
 import { Normalize } from "styled-normalize";
 import { createGlobalStyle } from "styled-components";
 import ProductGrid from "./ProductGrid";
@@ -15,15 +15,21 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const App: FunctionComponent = () => {
+  const [selectedSize, setSelectedSize] = useState("");
+  const change = (e: React.ChangeEvent<HTMLSelectElement>): void => {
+    setSelectedSize(e.target.value);
+  };
+
   return (
     <>
       <Normalize />
       <GlobalStyle />
       <header>
-        <Navbar />
+        <Navbar onChange={change} />
+        <p>{selectedSize}</p>
       </header>
       <main>
-        <ProductGrid />
+        <ProductGrid sizeFilter={selectedSize} />
       </main>
     </>
   );

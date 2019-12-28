@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react";
 import styled from "styled-components";
-import mockData from "./products.json";
 import Card from "./Card";
+import mockData from "./products.json";
 
 const GridWrapper = styled.section`
   display: grid;
@@ -9,10 +9,15 @@ const GridWrapper = styled.section`
   grid-gap: 1rem;
 `;
 
-const ProductGrid: FunctionComponent = () => {
+type ProductGridProps = {
+  sizeFilter: string;
+};
+
+const ProductGrid: FunctionComponent<ProductGridProps> = ({ sizeFilter }) => {
+  const filteredItems = mockData.filter(item => item.size.includes(sizeFilter));
   return (
     <GridWrapper>
-      {mockData.map(product => (
+      {filteredItems.map(product => (
         <Card
           key={product.index}
           image={product.productImage}
