@@ -16,7 +16,7 @@ const GlobalStyle = createGlobalStyle`
 
 const App: FunctionComponent = () => {
   const [selectedSize, setSelectedSize] = useState("");
-  const change = (e: React.ChangeEvent<HTMLSelectElement>): void => {
+  const changeSize = (e: React.ChangeEvent<HTMLSelectElement>): void => {
     setSelectedSize(e.target.value);
   };
 
@@ -25,8 +25,7 @@ const App: FunctionComponent = () => {
       <Normalize />
       <GlobalStyle />
       <header>
-        <Navbar onChange={change} />
-        <p>{selectedSize}</p>
+        <Navbar onChange={changeSize} />
       </header>
       <main>
         <ProductGrid sizeFilter={selectedSize} />
