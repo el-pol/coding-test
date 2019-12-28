@@ -43,8 +43,17 @@ const ProductGrid: FunctionComponent<ProductGridProps> = ({ sizeFilter }) => {
     fetchData();
   }, []);
 
-  const filteredItems =
-    data.length > 0 && data.filter(item => item.size.includes(sizeFilter));
+  // If the size filter is empty, we will display all the items.
+  const filteredItems = (
+    filter: string,
+    inputArray: DataResponseItem[]
+  ): DataResponseItem[] => {
+    if (filter === "") {
+      return inputArray;
+    } else {
+      return inputArray.filter(item => item.size.includes(sizeFilter));
+    }
+  };
 
   return (
     <>
@@ -53,17 +62,16 @@ const ProductGrid: FunctionComponent<ProductGridProps> = ({ sizeFilter }) => {
         <div>Loading...</div>
       ) : (
         <GridWrapper>
-          {filteredItems &&
-            filteredItems.map(product => (
-              <Card
-                key={product.index}
-                image={product.productImage}
-                name={product.productName}
-                price={product.price}
-                isSale={product.isSale}
-                isExclusive={product.isExclusive}
-              />
-            ))}
+          {filteredItems(sizeFilter, data).map(product => (
+            <Card
+              key={product.index}
+              image={product.productImage}
+              name={product.productName}
+              price={product.price}
+              isSale={product.isSale}
+              isExclusive={product.isExclusive}
+            />
+          ))}
         </GridWrapper>
       )}
     </>
