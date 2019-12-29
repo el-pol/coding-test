@@ -53,7 +53,7 @@ type CardProps = {
   isExclusive: boolean;
 };
 
-// If more booleans are added later, better to change it to a "variant = x | y |z" prop (enum).
+// If more booleans are added later, recommended to change the prop into a "variant = x | y | z" (TS enum).
 type PanelProps = {
   isSale?: boolean;
   isExclusive?: boolean;

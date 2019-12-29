@@ -2,6 +2,7 @@ import React, { FunctionComponent, useState, useEffect } from "react";
 import styled from "styled-components";
 import Card from "./Card";
 import axios from "axios";
+// We could also use the native Fetch API instead of axios.
 
 const GridWrapper = styled.section`
   display: grid;
@@ -43,7 +44,7 @@ const ProductGrid: FunctionComponent<ProductGridProps> = ({ sizeFilter }) => {
     fetchData();
   }, []);
 
-  // If the size filter is empty, we will display all the items.
+  // If the size filter is empty, we will display all the items. If the input array was large, the function could be memoized to optimize the performance.
   const filteredItems = (
     filter: string,
     inputArray: DataResponseItem[]
