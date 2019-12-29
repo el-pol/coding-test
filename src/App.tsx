@@ -25,7 +25,7 @@ const App: FunctionComponent = () => {
       <Normalize />
       <GlobalStyle />
       <header>
-        <Navbar onChange={changeSize} />
+        <Navbar onChange={changeSize} headingText="Women's tops" />
       </header>
       <main>
         <ProductGrid sizeFilter={selectedSize} />

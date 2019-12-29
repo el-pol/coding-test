@@ -15,13 +15,14 @@ const NavHeader = styled.nav`
 
 type NavbarProps = {
   onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
+  headingText: string;
 };
 
-const Navbar: FunctionComponent<NavbarProps> = ({ onChange }) => {
+const Navbar: FunctionComponent<NavbarProps> = ({ onChange, headingText }) => {
   const sizes = ["XS", "S", "M", "L", "XL"];
   return (
     <NavHeader>
-      <h1>Women's tops</h1>
+      <h1>{headingText}</h1>
       <select onChange={onChange} name="sizes" id="size-select">
         <option value="">Filter by size:</option>
         {sizes.map(size => (
