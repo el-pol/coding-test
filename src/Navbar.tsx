@@ -4,12 +4,19 @@ import styled from "styled-components";
 const NavHeader = styled.nav`
   width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
   background-color: #def1f4;
   margin-bottom: 0.5rem;
   * {
     margin: 0.5rem 1rem;
+  }
+  h1 {
+    font-size: 36px;
+  }
+  @media screen and (min-width: 500px) {
+    flex-direction: row;
   }
 `;
 

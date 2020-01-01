@@ -6,8 +6,9 @@ import axios from "axios";
 
 const GridWrapper = styled.section`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  grid-gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  border-top: 1px solid lightgrey;
+  border-left: 1px solid lightgrey;
 `;
 
 type ProductGridProps = {

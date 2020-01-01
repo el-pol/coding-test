@@ -2,10 +2,12 @@ import React, { FunctionComponent } from "react";
 import styled from "styled-components";
 
 const CardWrapper = styled.article`
-  border: 1px solid red;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  padding: 0.5rem;
+  border-bottom: 1px solid lightgrey;
+  border-right: 1px solid lightgrey;
 `;
 
 const ProductImageWrapper = styled.div`
@@ -22,7 +24,7 @@ const ProductImageWrapper = styled.div`
 const ProductDetails = styled.div`
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: last baseline;
   .product-name {
     font-size: 24px;
     font-weight: bold;
