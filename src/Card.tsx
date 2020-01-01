@@ -17,7 +17,6 @@ const ProductImageWrapper = styled.div`
   .product-image {
     width: 100%;
     height: auto;
-    margin: 1rem;
     min-height: 100px;
   }
 `;
