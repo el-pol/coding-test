@@ -23,7 +23,7 @@ const ProductImageWrapper = styled.div`
 const ProductDetails = styled.div`
   display: flex;
   justify-content: space-between;
-  align-items: last baseline;
+  align-items: baseline;
   .product-name {
     font-size: 24px;
     font-weight: bold;
