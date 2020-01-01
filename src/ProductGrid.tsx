@@ -2,7 +2,8 @@ import React, { FunctionComponent, useState, useEffect } from "react";
 import styled from "styled-components";
 import Card from "./Card";
 import axios from "axios";
-// We could also use the native Fetch API instead of axios.
+// We need a testing image, since the API does not return real image sources. Uncomment next line and change <Card /> props to test with a real image.
+// import TestImage from "./images/product-8.jpg";
 
 const GridWrapper = styled.section`
   display: grid;
@@ -56,7 +57,7 @@ const ProductGrid: FunctionComponent<ProductGridProps> = ({ sizeFilter }) => {
       return inputArray.filter(item => item.size.includes(sizeFilter));
     }
   };
-
+  // Replace the image prop with "TestImage" to test product image display.
   return (
     <>
       {isError && <div>Something went wrong...</div>}
