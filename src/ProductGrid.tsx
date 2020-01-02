@@ -1,7 +1,6 @@
 import React, { FunctionComponent, useState, useEffect } from "react";
 import styled from "styled-components";
 import Card from "./Card";
-import axios from "axios";
 // We need a testing image, since the API does not return real image sources. Uncomment next line and change <Card /> props to test with a real image.
 // import TestImage from "./images/product-8.jpg";
 
@@ -35,8 +34,9 @@ const ProductGrid: FunctionComponent<ProductGridProps> = ({ sizeFilter }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const result = await axios(`${process.env.REACT_APP_API_URL}`);
-        setData(result.data);
+        const result = await fetch(`${process.env.REACT_APP_API_URL}`);
+        const responseData = await result.json();
+        setData(responseData);
       } catch (error) {
         setIsError(true);
       }
@@ -62,9 +62,9 @@ const ProductGrid: FunctionComponent<ProductGridProps> = ({ sizeFilter }) => {
     <>
       {isError && <div>Something went wrong...</div>}
       {isLoading ? (
-        <div>Loading...</div>
+        <div data-testid="loading">Loading...</div>
       ) : (
-        <GridWrapper>
+        <GridWrapper data-testid="wrapper">
           {filteredItems(sizeFilter, data).map(product => (
             <Card
               key={product.index}
