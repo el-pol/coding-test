@@ -14,24 +14,26 @@ const ProductImageWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  .product-image {
-    width: 100%;
-    height: auto;
-    min-height: 100px;
-  }
 `;
+
+const ProductImage = styled.img`
+  width: 100%;
+  height: auto;
+  min-height: 100px;
+`;
+
 const ProductDetails = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  .product-name {
-    font-size: 24px;
-    font-weight: bold;
-  }
-  .product-price {
-    font-size: 36px;
-    font-weight: bold;
-  }
+`;
+const ProductName = styled.p`
+  font-size: 24px;
+  font-weight: bold;
+`;
+const ProductPrice = styled.p`
+  font-size: 36px;
+  font-weight: bold;
 `;
 
 const PanelWrapper = styled.div`
@@ -39,11 +41,11 @@ const PanelWrapper = styled.div`
     props.isSale ? "#cc3333" : "#009900"};
   color: white;
   width: max-content;
-  .panel-text {
-    padding: 1rem;
-    text-align: center;
-    margin: 0;
-  }
+`;
+const PanelText = styled.p`
+  padding: 1rem;
+  text-align: center;
+  margin: 0;
 `;
 
 type CardProps = {
@@ -65,7 +67,7 @@ const Panel: FunctionComponent<PanelProps> = props => {
   return (
     <>
       <PanelWrapper isSale={props.isSale}>
-        <p className="panel-text">{props.isSale ? "Sale" : "Exclusive"}</p>
+        <PanelText>{props.isSale ? "Sale" : "Exclusive"}</PanelText>
       </PanelWrapper>
     </>
   );
@@ -82,13 +84,13 @@ const Card: FunctionComponent<CardProps> = ({
   return (
     <CardWrapper data-testid="product">
       <ProductImageWrapper>
-        <img className="product-image" src={image} alt={name} />
+        <ProductImage src={image} alt={name} />
         <br />
         {isSale && <Panel isSale />} {isExclusive && <Panel isExclusive />}
       </ProductImageWrapper>
       <ProductDetails>
-        <p className="product-name">{name}</p>
-        <p className="product-price">{price}</p>
+        <ProductName>{name}</ProductName>
+        <ProductPrice>{price}</ProductPrice>
       </ProductDetails>
     </CardWrapper>
   );
