@@ -80,7 +80,7 @@ const Card: FunctionComponent<CardProps> = ({
 }) => {
   // Panel component accounts for cases where an item is on sale and is exclusive as well (not in the API, but could happen "in real life").
   return (
-    <CardWrapper>
+    <CardWrapper data-testid="product">
       <ProductImageWrapper>
         <img className="product-image" src={image} alt={name} />
         <br />

@@ -60,7 +60,7 @@ const ProductGrid: FunctionComponent<ProductGridProps> = ({ sizeFilter }) => {
   // Replace the image prop with "TestImage" to test product image display.
   return (
     <>
-      {isError && <div>Something went wrong...</div>}
+      {isError && <div data-testid="error">Something went wrong...</div>}
       {isLoading ? (
         <div data-testid="loading">Loading...</div>
       ) : (
