@@ -18,8 +18,20 @@ You will have to run `yarn install`. To run the development version, run `yarn s
 
 Feel free to check out a deployed live version by clicking [this link](https://cocky-payne-dfc1d9.netlify.com/)
 
+## Tests
+
+Unit tests for this application were written using `jest` as a test runner and `@testing-library/react` as the assertions library.
+
+All the major components were tested. Feel free to check out the `__tests__` folder to read and modify the tests.
+
+- **App.tsx:** ensuring that it renders an element and does not crash.
+- **Card.tsx:** based on props, ensuring that all data is displayed correctly.
+- **Navbar.tsx:** heading text is in the document and the size selector contains all the sizes.
+- **ProductGrid.tsx:** testing of all possible outcomes: a successful API call, an error in the API call, and a correct display of filtered items.
+
 ## Packages added
 
-- styled-components
-- styled-normalize
-- axios
+- `styled-components`: to style the application using CSS-in-JS and modify styling based on props.
+- `styled-normalize`: a base [normalize.css](https://necolas.github.io/normalize.css/) to ensure the base styles remain the same for all browsers.
+- `jest-fetch-mock`: a Fetch API mock used for testing purposes.
+- `@testing-library/react`: simple and complete testing utilities that encourage good testing practices.
