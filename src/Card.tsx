@@ -67,7 +67,9 @@ const Panel: FunctionComponent<PanelProps> = props => {
   return (
     <>
       <PanelWrapper isSale={props.isSale}>
-        <PanelText>{props.isSale ? "Sale" : "Exclusive"}</PanelText>
+        <PanelText data-testid="panel-text">
+          {props.isSale ? "Sale" : "Exclusive"}
+        </PanelText>
       </PanelWrapper>
     </>
   );
@@ -82,13 +84,13 @@ const Card: FunctionComponent<CardProps> = ({
 }) => {
   // Panel component accounts for cases where an item is on sale and is exclusive as well (not in the API, but could happen "in real life").
   return (
-    <CardWrapper data-testid="product">
+    <CardWrapper data-testid="product-card">
       <ProductImageWrapper>
-        <ProductImage src={image} alt={name} />
+        <ProductImage data-testid="product-image" src={image} alt={name} />
         <br />
         {isSale && <Panel isSale />} {isExclusive && <Panel isExclusive />}
       </ProductImageWrapper>
-      <ProductDetails>
+      <ProductDetails data-testid="product-card-details">
         <ProductName>{name}</ProductName>
         <ProductPrice>{price}</ProductPrice>
       </ProductDetails>
