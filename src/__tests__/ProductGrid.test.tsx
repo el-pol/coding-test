@@ -4,6 +4,7 @@ import ProductGrid from "../ProductGrid";
 import mockData from "../products.json";
 
 global.fetch = require("jest-fetch-mock");
+// Temporary fix to solve a bug with TypeScript (https://github.com/jefflau/jest-fetch-mock/issues/82)
 const fetchAny = fetch as any;
 
 afterEach(() => {
