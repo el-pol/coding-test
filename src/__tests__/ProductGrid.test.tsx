@@ -4,15 +4,18 @@ import ProductGrid from "../ProductGrid";
 import mockData from "../products.json";
 
 global.fetch = require("jest-fetch-mock");
+const fetchAny = fetch as any;
+
 afterEach(() => {
   cleanup();
-  console.error.mockClear();
+  jest.clearAllMocks();
 });
 
 console.error = jest.fn();
 
 test("<ProductGrid />", async () => {
-  fetch.mockResponseOnce(JSON.stringify(mockData));
+  const url = `${process.env.REACT_APP_API_URL}`;
+  fetchAny.mockResponseOnce(JSON.stringify(mockData));
 
   const { getByTestId, getAllByTestId, queryByTestId } = render(
     <ProductGrid sizeFilter="" />
@@ -20,15 +23,36 @@ test("<ProductGrid />", async () => {
 
   await waitForElement(() => getByTestId("wrapper"));
   expect(queryByTestId("loading")).toBeFalsy();
-  expect(getAllByTestId("product").length).toBe(mockData.length);
+  expect(getAllByTestId("product-card").length).toBe(mockData.length);
+  expect(fetchAny).toHaveBeenCalledWith(url);
+  expect(fetchAny).toHaveBeenCalledTimes(1);
 });
 
 test("<ProductGrid /> API fail", async () => {
-  fetch.mockReject(new Error("fake error message"));
+  fetchAny.mockReject(new Error("fake error message"));
 
   const { getByTestId, queryByTestId } = render(<ProductGrid sizeFilter="" />);
   expect(getByTestId("loading")).toBeTruthy();
   await waitForElement(() => getByTestId("wrapper"));
   expect(queryByTestId("loading")).toBeFalsy();
   expect(queryByTestId("error")).toBeTruthy();
+  expect(fetchAny).toHaveBeenCalledTimes(1);
+});
+
+test("<ProductGrid /> displays filtered items", async () => {
+  const url = `${process.env.REACT_APP_API_URL}`;
+  fetchAny.mockResponseOnce(JSON.stringify(mockData));
+
+  const { getByTestId, getAllByTestId, queryByTestId } = render(
+    <ProductGrid sizeFilter="S" />
+  );
+
+  const smallItemsLength = mockData.filter(item => item.size.includes("S"))
+    .length;
+
+  await waitForElement(() => getByTestId("wrapper"));
+  expect(queryByTestId("loading")).toBeFalsy();
+  expect(getAllByTestId("product-card").length).toBe(smallItemsLength);
+  expect(fetchAny).toHaveBeenCalledWith(url);
+  expect(fetchAny).toHaveBeenCalledTimes(1);
 });

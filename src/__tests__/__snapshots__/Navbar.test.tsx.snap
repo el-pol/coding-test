@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Navbar /> 1`] = `
+<select
+  data-testid="size-select"
+  id="size-select"
+  name="sizes"
+>
+  <option
+    value=""
+  >
+    Filter by size:
+  </option>
+  <option
+    value="XS"
+  >
+    XS
+  </option>
+  <option
+    value="S"
+  >
+    S
+  </option>
+  <option
+    value="M"
+  >
+    M
+  </option>
+  <option
+    value="L"
+  >
+    L
+  </option>
+  <option
+    value="XL"
+  >
+    XL
+  </option>
+</select>
+`;

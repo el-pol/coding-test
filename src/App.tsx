@@ -24,7 +24,7 @@ const App: FunctionComponent = () => {
     <>
       <Normalize />
       <GlobalStyle />
-      <header>
+      <header data-testid="render">
         <Navbar onChange={changeSize} headingText="Women's tops" />
       </header>
       <main>
