@@ -12,6 +12,8 @@ I am using `create-react-app` because it already includes a Webpack configuratio
 
 In order to see the configuration, you can run `yarn eject` or `npm run eject`, which will expose all the settings to be checked or modified. Please bear in mind that once you run the `eject` command, there is no going back.
 
+In the API response, the image sources did not exist. I have written the query as I would if the sources were valid, but you will see console errors and empty placeholders where the images are supposed to be. I have included a comment in `ProductGrid.tsx` as to how to display with a mock test image.
+
 ## Usage
 
 You will have to run `yarn install`. To run the development version, run `yarn start`. To run the tests, run `yarn test`. You can also build a production-ready app by running `yarn build`. If you use NPM, replace `yarn` with `npm run`.
