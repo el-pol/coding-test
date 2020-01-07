@@ -1,8 +1,8 @@
 import React, { FunctionComponent, useState, useEffect } from "react";
 import styled from "styled-components";
 import Card from "./Card";
-// We need a testing image, since the API does not return real image sources. Uncomment next line and change <Card /> props to test with a real image.
-// import TestImage from "./images/product-8.jpg";
+// We need a testing image, since the API does not return real image sources.
+import TestImage from "./images/product-8.jpg";
 
 const GridWrapper = styled.section`
   display: grid;
@@ -58,7 +58,6 @@ const ProductGrid: FunctionComponent<ProductGridProps> = ({ sizeFilter }) => {
       return inputArray.filter(item => item.size.includes(sizeFilter));
     }
   };
-  // Replace the image prop with "TestImage" to test product image display.
   return (
     <>
       {isError && <div data-testid="error">Something went wrong...</div>}
@@ -69,7 +68,7 @@ const ProductGrid: FunctionComponent<ProductGridProps> = ({ sizeFilter }) => {
           {filteredItems(sizeFilter, data).map(product => (
             <Card
               key={product.index}
-              image={product.productImage}
+              image={TestImage}
               name={product.productName}
               price={product.price}
               isSale={product.isSale}
