@@ -34,6 +34,7 @@ const ProductGrid: FunctionComponent<ProductGridProps> = ({ sizeFilter }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        // In a real app, the API URL & key should be hidden.
         const result = await fetch(`${process.env.REACT_APP_API_URL}`);
         const responseData = await result.json();
         setData(responseData);
