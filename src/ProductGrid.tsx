@@ -6,9 +6,12 @@ import TestImage from "./images/product-8.jpg";
 
 const GridWrapper = styled.section`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, 1fr);
   border-top: 1px solid lightgrey;
   border-left: 1px solid lightgrey;
+  @media screen and (min-width: 350px) {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
 `;
 
 type ProductGridProps = {

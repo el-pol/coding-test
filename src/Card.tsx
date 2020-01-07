@@ -24,16 +24,22 @@ const ProductImage = styled.img`
 
 const ProductDetails = styled.div`
   display: flex;
-  justify-content: space-between;
-  align-items: baseline;
+  flex-direction: column;
+  @media screen and (min-width: 350px) {
+    justify-content: space-between;
+    align-items: baseline;
+    flex-direction: row;
+  }
 `;
 const ProductName = styled.p`
   font-size: 24px;
   font-weight: bold;
+  margin: 0.5rem 0;
 `;
 const ProductPrice = styled.p`
   font-size: 36px;
   font-weight: bold;
+  margin: 0.5rem 0;
 `;
 
 const PanelWrapper = styled.div`
