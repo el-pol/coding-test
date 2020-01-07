@@ -25,7 +25,7 @@ const ProductImage = styled.img`
 const ProductDetails = styled.div`
   display: flex;
   flex-direction: column;
-  @media screen and (min-width: 350px) {
+  @media screen and (min-width: 380px) {
     justify-content: space-between;
     align-items: baseline;
     flex-direction: row;

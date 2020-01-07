@@ -9,7 +9,7 @@ const GridWrapper = styled.section`
   grid-template-columns: repeat(auto-fit, 1fr);
   border-top: 1px solid lightgrey;
   border-left: 1px solid lightgrey;
-  @media screen and (min-width: 350px) {
+  @media screen and (min-width: 380px) {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   }
 `;
