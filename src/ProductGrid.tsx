@@ -2,7 +2,7 @@ import React, { FunctionComponent, useState, useEffect } from "react";
 import styled from "styled-components";
 import Card from "./Card";
 // We need a testing image, since the API does not return real image sources.
-import TestImage from "./images/product-8.jpg";
+// import TestImage from "./images/product-8.jpg";
 
 const GridWrapper = styled.section`
   display: grid;
@@ -71,7 +71,7 @@ const ProductGrid: FunctionComponent<ProductGridProps> = ({ sizeFilter }) => {
           {filteredItems(sizeFilter, data).map(product => (
             <Card
               key={product.index}
-              image={TestImage}
+              image={product.productImage}
               name={product.productName}
               price={product.price}
               isSale={product.isSale}
