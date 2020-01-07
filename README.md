@@ -3,6 +3,7 @@
 ## Live version
 
 [Deployed on Netlify](https://cocky-payne-dfc1d9.netlify.com/)
+[Deployed version with a mock image](https://gracious-beaver-51d201.netlify.com/)
 
 ## Notes
 
